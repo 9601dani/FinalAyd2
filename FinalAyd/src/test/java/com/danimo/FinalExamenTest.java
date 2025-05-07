@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FinalExamenTest {
 
     private FinalExamen finalExamen;
+    private FinalExamen.UserService userService;
     private FinalExamen.Order order;
     private final String NAME= "JUAN";
     private final String EMAIL = "JAUN@GMIAL.COM";
@@ -73,7 +74,7 @@ public class FinalExamenTest {
         String expected = "User created: " + NAME;
 
         // Act
-        String result = finalExamen.createUser(NAME, EMAIL, PHONE, ADDRESS, CITY, ZIP);
+        String result = userService.createUser(NAME, EMAIL, PHONE, ADDRESS, CITY, ZIP);
 
         // Assert
         assertEquals(expected, result);
@@ -87,7 +88,7 @@ public class FinalExamenTest {
         String expected = "Name cannot be empty";
 
         // Act
-        String result = finalExamen.createUser(name, EMAIL, PHONE, ADDRESS, CITY, ZIP);
+        String result = userService.createUser(name, EMAIL, PHONE, ADDRESS, CITY, ZIP);
 
         // Assert
         assertEquals(expected, result);
@@ -100,7 +101,7 @@ public class FinalExamenTest {
         String expected = "Invalid email";
 
         // Act
-        String result = finalExamen.createUser(NAME, email, PHONE, ADDRESS, CITY, ZIP);
+        String result = userService.createUser(NAME, email, PHONE, ADDRESS, CITY, ZIP);
 
         // Assert
         assertEquals(expected, result);
